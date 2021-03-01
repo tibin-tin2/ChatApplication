@@ -1,6 +1,6 @@
 package com.example.ChatApplication.processors;
 
-import com.example.ChatApplication.db.UserDAL;
+import com.example.ChatApplication.db.MemberAccountDAL;
 import com.example.ChatApplication.model.MemberAccount;
 import org.springframework.stereotype.Component;
 
@@ -8,14 +8,14 @@ import org.springframework.stereotype.Component;
 public class Login {
 
 
-    private final UserDAL userDAL;
+    private final MemberAccountDAL memberAccountDAL;
 
-    public Login(UserDAL userDAL) {
-        this.userDAL = userDAL;
+    public Login(MemberAccountDAL memberAccountDAL) {
+        this.memberAccountDAL = memberAccountDAL;
     }
 
     public boolean checkLogin(MemberAccount memberAccount) {
-        MemberAccount ma = userDAL.getUserByUserName(memberAccount.getUsername());
+        MemberAccount ma = memberAccountDAL.getUserByUserName(memberAccount.getUsername());
         if (ma != null) {
             if (ma.getPassword().equals(memberAccount.getPassword())) {
                 return Boolean.TRUE;
