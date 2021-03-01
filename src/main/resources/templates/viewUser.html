@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View User</title>
+</head>
+<body>
+    <p th:text="'username ' + ${memberAccount.username}"></p>
+    <p>
+        <a href="/login">go back</a>
+    </p>
+</body>
+</html>
